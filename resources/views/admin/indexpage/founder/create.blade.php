@@ -2,7 +2,7 @@
 <html>
 @php
 $administrationm = 'menu-open';
-$amanagement = $mmeasurable_criteria = 'active';
+$amanagement = $mfounders = 'active';
 @endphp
 @include('layouts.admin.tableheader')
 
@@ -22,8 +22,8 @@ $amanagement = $mmeasurable_criteria = 'active';
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h2>{{ $pageTitle ?? 'Create New Slider' }}</h2>
-              <a href="{{ url('slider') }}" class="btn btn-sm btn-secondary float-right">Back to List</a>
+              <h2>{{ $pageTitle ?? 'Create New Founder' }}</h2>
+              <a href="{{ url('founders') }}" class="btn btn-sm btn-secondary float-right">Back to List</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -40,13 +40,13 @@ $amanagement = $mmeasurable_criteria = 'active';
                 </div>
               @endif
 
-              <!-- Form to create or update a slider -->
+              <!-- Form to create or update a founder -->
               <form 
-                action="{{ isset($slider) && $slider->id ? route('slider.update', $slider->id) : route('slider.store') }}" 
+                action="{{ isset($founder) && $founder->id ? route('founder.update', $founder->id) : route('founder.store') }}" 
                 method="POST" 
                 enctype="multipart/form-data">
                 @csrf
-                @if (isset($slider))
+                @if (isset($founder))
                   @method('PUT')
                 @endif
 
@@ -60,13 +60,29 @@ $amanagement = $mmeasurable_criteria = 'active';
                         name="name" 
                         id="name" 
                         class="form-control" 
-                        value="{{ old('name', $slider->name ?? '') }}" 
+                        value="{{ old('name', $founder->name ?? '') }}" 
                         required>
                     </div>
                   </div>
 
-                  <!-- Description -->
+                  <!-- Heading -->
                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="heading">Heading:</label>
+                      <input 
+                        type="text" 
+                        name="heading" 
+                        id="heading" 
+                        class="form-control" 
+                        value="{{ old('heading', $founder->heading ?? '') }}" 
+                        required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <!-- Description -->
+                  <div class="col-md-12">
                     <div class="form-group">
                       <label for="description">Description:</label>
                       <textarea 
@@ -74,7 +90,7 @@ $amanagement = $mmeasurable_criteria = 'active';
                         id="description" 
                         class="form-control" 
                         rows="3" 
-                        required>{{ old('description', $slider->description ?? '') }}</textarea>
+                        required>{{ old('description', $founder->description ?? '') }}</textarea>
                     </div>
                   </div>
                 </div>
@@ -89,18 +105,21 @@ $amanagement = $mmeasurable_criteria = 'active';
                         name="image" 
                         id="image" 
                         class="form-control" 
-                        {{ isset($slider) ? '' : 'required' }}>
-                      <small class="form-text text-muted">Upload an image file (JPG,ccc PNG).</small>
+                        {{ isset($founder) ? '' : 'required' }}>
+                      <small class="form-text text-muted">Upload an image file (JPG, PNG).</small>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="form-group mt-4">
-                      @if(isset($slider) && $slider->image)
-                      <p>Current Image: <img src="{{ asset('storage/' . $slider->image) }}" alt="Profile Image" width="100"></p>
-                      @endif
-                  </div>
-              </div>
+                <div class="row"><div class="col-md-12">
+                    <div class="form-group mt-4">
+                        @if(isset($founder) && $founder->image)
+                        <p>Current Image: <img src="{{ asset('storage/' . $founder->image) }}" alt="Profile Image" width="600"Hight="600"></p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+                
+
 
 
                 <div class="form-group text-right">

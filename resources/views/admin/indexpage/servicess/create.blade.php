@@ -10,6 +10,7 @@ $amanagement = $mmeasurable_criteria = 'active';
 <div class="wrapper">
   <!-- Navbar -->
   @include('layouts.admin.nav')
+  <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   @include('layouts.admin.aside')
@@ -22,8 +23,8 @@ $amanagement = $mmeasurable_criteria = 'active';
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h2>{{ $pageTitle ?? 'Create New Slider' }}</h2>
-              <a href="{{ url('slider') }}" class="btn btn-sm btn-secondary float-right">Back to List</a>
+              <h2>{{ $pageTitle ?? 'Create New Page' }}</h2>
+              <a type="button" href="{{ url('records') }}" class="btn btn-sm btn-secondary float-right">Back to List</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -40,13 +41,13 @@ $amanagement = $mmeasurable_criteria = 'active';
                 </div>
               @endif
 
-              <!-- Form to create or update a slider -->
+              <!-- Form to create or update a page -->
               <form 
-                action="{{ isset($slider) && $slider->id ? route('slider.update', $slider->id) : route('slider.store') }}" 
+              action="{{ isset($service) && $service->id ? route('services.update', $service->id) : route('services.store') }}" 
                 method="POST" 
                 enctype="multipart/form-data">
                 @csrf
-                @if (isset($slider))
+                @if (isset($service))
                   @method('PUT')
                 @endif
 
@@ -60,27 +61,40 @@ $amanagement = $mmeasurable_criteria = 'active';
                         name="name" 
                         id="name" 
                         class="form-control" 
-                        value="{{ old('name', $slider->name ?? '') }}" 
+                        value="{{ old('name', $service->name ?? '') }}" 
                         required>
                     </div>
                   </div>
 
-                  <!-- Description -->
+                  <!-- Heading -->
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="description">Description:</label>
-                      <textarea 
-                        name="description" 
-                        id="description" 
+                      <label for="heading">Heading:</label>
+                      <input 
+                        type="text" 
+                        name="heading" 
+                        id="heading" 
                         class="form-control" 
-                        rows="3" 
-                        required>{{ old('description', $slider->description ?? '') }}</textarea>
+                        value="{{ old('heading', $service->heading ?? '') }}" 
+                        required>
                     </div>
                   </div>
                 </div>
 
                 <div class="row">
-                  <!-- Image -->
+                  <!-- Description -->
+                  <div class="col-md-12">
+                    <textarea 
+                      name="description" 
+                      id="description" 
+                      class="form-control" 
+                      rows="3" 
+                      required>{{ old('description', $service->description ?? '') }}</textarea>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <!-- Image Upload -->
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="image">Image:</label>
@@ -89,19 +103,20 @@ $amanagement = $mmeasurable_criteria = 'active';
                         name="image" 
                         id="image" 
                         class="form-control" 
-                        {{ isset($slider) ? '' : 'required' }}>
-                      <small class="form-text text-muted">Upload an image file (JPG,ccc PNG).</small>
+                        {{ isset($service) ? '' : 'required' }}>
+                      <small class="form-text text-muted">Upload an image file (JPG, PNG).</small>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="row"><div class="col-md-12">
                   <div class="form-group mt-4">
-                      @if(isset($slider) && $slider->image)
-                      <p>Current Image: <img src="{{ asset('storage/' . $slider->image) }}" alt="Profile Image" width="100"></p>
+                      @if(isset($service) && $service->image)
+                      <p>Current Image: <img src="{{ asset('storage/' . $service->image) }}" alt="Profile Image" width="600"Hight="600"></p>
                       @endif
                   </div>
               </div>
-
+          </div>
+              
 
                 <div class="form-group text-right">
                   <button type="submit" class="btn btn-primary">Submit</button>

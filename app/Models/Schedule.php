@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
-    protected $fillable = [ 'day', 'start_time', 'end_time'];
+    protected $fillable = [
+        'title', 'description', 'day', 'start_time', 'end_time', 'status_id'
+    ];
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'status_id', 'status_id'); // Ensure 'id' exists in the 'status' table
+    }
 }

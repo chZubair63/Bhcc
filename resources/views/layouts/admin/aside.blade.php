@@ -162,26 +162,14 @@ index page
 
               
 
-              <li class="nav-item">
-
-                <a href="{{ route('slider.index') }}" onclick="showLoading()" class="nav-link {{$muser??''}}">
-
-                  <i class="far fa-circle nav-icon"></i>
-
-                  <p>slider image</p>
-
-                </a>
-
-              </li>
-
-
+           
 
 
 
 
               <li class="nav-item">
 
-                <a href="{{ route('schedules.index') }}" onclick="showLoading()" class="nav-link {{$mrole??''}}">
+                <a href="{{ url('schedules') }}" onclick="showLoading()" class="nav-link {{$mrole??''}}">
 
                   <i class="far fa-circle nav-icon"></i>
 
@@ -194,11 +182,49 @@ index page
 
               <li class="nav-item">
 
-                <a href="{{url('')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+                <a href="{{url('departments')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
 
                   <i class="far fa-circle nav-icon"></i>
 
-                  <p>Manage Permissions</p>
+                  <p>Departments</p>
+
+                </a>
+
+              </li>
+
+              <li class="nav-item">
+
+                <a href="{{url('services')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>Services</p>
+
+                </a>
+
+              </li>
+
+              <li class="nav-item">
+
+                <a href="{{url('slider')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>Slider Images</p>
+
+                </a>
+
+              </li>
+
+
+
+              <li class="nav-item">
+
+                <a href="{{url('founder')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>founder</p>
 
                 </a>
 

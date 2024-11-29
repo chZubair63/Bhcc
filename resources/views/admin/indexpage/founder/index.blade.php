@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
-@php
-$administrationm = 'menu-open';
-$amanagement = $mmeasurable_criteria = 'active';
-@endphp
-@include('layouts.admin.tableheader')
+<html lang="en">
+<head>
+    @php
+        $administrationm = 'menu-open';
+        $amanagement = $mfounders = 'active';
+    @endphp
+    @include('layouts.admin.tableheader')
+</head>
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
   @include('layouts.admin.nav')
-  <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   @include('layouts.admin.aside')
@@ -21,14 +22,14 @@ $amanagement = $mmeasurable_criteria = 'active';
     <section class="content">
       <div class="row">
         <div class="col-12">
-          <!-- /.card -->
+          <!-- Table Card -->
           <div class="card">
             <div class="card-header">
-              <h2 class="card-title">List of Departments</h2>
-              <a type="button" href="{{ url('departments-create') }}" class="btn btn-sm btn-primary float-right">Add New</a>
+              <h2 class="card-title">List of Founders</h2>
+              <a href="{{ url('founder-create') }}" class="btn btn-sm btn-primary float-right">Add New</a>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
+              <!-- Alerts -->
               @if (Session::has('error'))
                 <div class="alert alert-danger alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -42,28 +43,35 @@ $amanagement = $mmeasurable_criteria = 'active';
                 </div>
               @endif
 
+              <!-- Data Table -->
               <div class="table-responsive">
                 <table id="records-table" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      {{-- <th>ID</th> --}}
-                      <th>sr</th>
+                      <th>ID</th>
                       <th>Name</th>
                       <th>Description</th>
+                      <th>Heading</th>
+                      <th>Image</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @php $i = 1; @endphp
-                    @foreach($departments as $row)
+                    @foreach($founders as $founder)
                       <tr>
-                        {{-- <td>{{ $row->id }}</td> --}}
-                        <td>{{$i++}}</td>
-                        <td>{{ $row->name }}</td>
-                        <td>{{ $row->discription }}</td>
-                        
+                        <td>{{ $founder->id }}</td>
+                        <td>{{ $founder->name }}</td>
+                        <td>{{ $founder->description }}</td>
+                        <td>{{ $founder->heading }}</td>
                         <td>
-                          <a type="button" class="btn btn-sm btn-primary" href="{{ url('departments-edit/' . $row->id) }}">Edit</a>
+                          @if($founder->image)
+                            <img src="{{ asset('storage/' . $founder->image) }}" alt="Founder Image" width="50">
+                          @else
+                            No Image
+                          @endif
+                        </td>
+                        <td>
+                          <a href="{{ url('founder-edit/' . $founder->id) }}" class="btn btn-sm btn-warning">Edit</a>
                         </td>
                       </tr>
                     @endforeach
@@ -71,26 +79,19 @@ $amanagement = $mmeasurable_criteria = 'active';
                 </table>
               </div>
             </div>
-            <!-- /.card-body -->
           </div>
-          <!-- /.card -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+
   @include('layouts.admin.foot')
   @include('layouts.admin.tablefooter')
 
   <script>
     $(document).ready(function() {
-      // Initialize DataTable on load
       $('#records-table').DataTable();
     });
   </script>
-
 </body>
 </html>

@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+{{-- <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 
     <!-- Left navbar links -->
 
@@ -349,4 +349,54 @@ onclick="event.preventDefault();
   </nav>
   <section id="loading">
     <div id="loading-content"></div>
-  </section>
+  </section> --}}
+
+
+
+
+  <li class="nav-item dropdown">
+    <a class="nav-link" data-toggle="dropdown" href="#">
+        @if(Auth::check() && Auth::user()->photo)
+            <img src="{{ asset('assets/images/users/' . Auth::user()->photo) }}" width="25" class="img-circle elevation-2" alt="User Image">
+        @else
+            <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" width="25" class="img-circle elevation-2" alt="Default User Image">
+        @endif
+
+        @if(Auth::check())
+            {{ \Illuminate\Support\Str::limit(Auth::user()->name, 8, '...') }}
+        @else
+            <script type="text/javascript">
+                window.location = "{{ url('/login') }}";
+            </script>
+        @endif
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        @if(Auth::check())
+            <a class="dropdown-item" href="my-profile">
+                <img src="{{ asset('assets/images/users/' . Auth::user()->photo) }}" width="100" height="100" alt="User Image">
+            </a>
+            <h4 class="dropdown-item" style="text-transform: capitalize;">{{ Auth::user()->name }}</h4>
+            <h5 class="dropdown-item">
+                @if(!empty(Auth::user()->getRoleNames()))
+                    @foreach(Auth::user()->getRoleNames() as $role)
+                        <label class="badge badge-success">{{ $role }}</label>
+                    @endforeach
+                @endif
+            </h5>
+            <div class="divider"></div>
+            <div class="dropdown-item">
+                <div class="row">
+                    <a class="" style="margin: 3px;" href="{{ url('my-profile') }}" data-toggle="tooltip" title="My Profile"><i class="fa fa-user"></i> Profile</a>
+                    <a class="" style="margin: 3px;" href="{{ url('change-password') }}" data-toggle="tooltip" title="Change Password"><i class="fa fa-key"></i> Password</a>
+                    <a class="" style="margin: 3px;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        @else
+            <a class="dropdown-item" href="{{ url('/login') }}">Login</a>
+        @endif
+    </div>
+</li>

@@ -21,11 +21,10 @@ $amanagement = $mmeasurable_criteria = 'active';
     <section class="content">
       <div class="row">
         <div class="col-12">
-          <!-- /.card -->
           <div class="card">
             <div class="card-header">
-              <h2 class="card-title">List of Departments</h2>
-              <a type="button" href="{{ url('departments-create') }}" class="btn btn-sm btn-primary float-right">Add New</a>
+              <h2 class="card-title">List of Records</h2>
+              <a type="button" href="{{ url('schedule-create') }}" class="btn btn-sm btn-primary float-right">Add New</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -46,24 +45,30 @@ $amanagement = $mmeasurable_criteria = 'active';
                 <table id="records-table" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      {{-- <th>ID</th> --}}
-                      <th>sr</th>
-                      <th>Name</th>
+                      <th>Sr</th>
+                      <th>Title</th>
                       <th>Description</th>
+                      <th>Day</th>
+                      <th>Start Time</th>
+                      <th>End Time</th>
+                      <th>Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     @php $i = 1; @endphp
-                    @foreach($departments as $row)
+                    @foreach($schedules as $row)
                       <tr>
-                        {{-- <td>{{ $row->id }}</td> --}}
-                        <td>{{$i++}}</td>
-                        <td>{{ $row->name }}</td>
-                        <td>{{ $row->discription }}</td>
-                        
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $row->title }}</td>
+                        <td>{{ $row->description }}</td>
+                        <td>{{ $row->day }}</td>
+                        <td>{{ $row->start_time }}</td>
+                        <td>{{ $row->end_time }}</td>
+                        {{-- <td>{{ $row->status_id }}</td> --}}
+                        <td>{{ optional($row->status)->status_name   }}</td>
                         <td>
-                          <a type="button" class="btn btn-sm btn-primary" href="{{ url('departments-edit/' . $row->id) }}">Edit</a>
+                          <a type="button" class="btn btn-sm btn-primary" href="{{ url('schedule-edit/' . $row->id) }}">Edit</a>
                         </td>
                       </tr>
                     @endforeach

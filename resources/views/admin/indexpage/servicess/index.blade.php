@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
-@php
-$administrationm = 'menu-open';
-$amanagement = $mmeasurable_criteria = 'active';
-@endphp
-@include('layouts.admin.tableheader')
+<html lang="en">
+<head>
+    @php
+        $administrationm = 'menu-open';
+        $amanagement = $mmeasurable_criteria = 'active';
+    @endphp
+    @include('layouts.admin.tableheader')
+</head>
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -24,8 +26,8 @@ $amanagement = $mmeasurable_criteria = 'active';
           <!-- /.card -->
           <div class="card">
             <div class="card-header">
-              <h2 class="card-title">List of Departments</h2>
-              <a type="button" href="{{ url('departments-create') }}" class="btn btn-sm btn-primary float-right">Add New</a>
+              <h2 class="card-title">List of Services</h2>
+              <a type="button" href="{{ url('services-create') }}" class="btn btn-sm btn-primary float-right">Add New</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -46,24 +48,38 @@ $amanagement = $mmeasurable_criteria = 'active';
                 <table id="records-table" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      {{-- <th>ID</th> --}}
-                      <th>sr</th>
+                      <th>Sr. No</th>
                       <th>Name</th>
                       <th>Description</th>
+                      <th>Heading</th>
+                      <th>Image</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     @php $i = 1; @endphp
-                    @foreach($departments as $row)
+                    @foreach($services as $service)
                       <tr>
-                        {{-- <td>{{ $row->id }}</td> --}}
-                        <td>{{$i++}}</td>
-                        <td>{{ $row->name }}</td>
-                        <td>{{ $row->discription }}</td>
-                        
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $service->name }}</td>
+                        <td>{{ $service->description }}</td>
+                        <td>{{ $service->heading }}</td>
+                         <td>
+                          @if($service->image)
+                          <img src="{{ asset('storage/' . $service->image) }}" alt="Service Image" width="50">
+                          @else
+                            No Image
+                          @endif
+                        </td> 
+                        {{-- <td>
+                          @if($service->image != '' && file_exists(public_path().'/uploads/services/'.$service->image))
+                          <img src="{{ url('uploads/services/'.$service->image) }}" alt="" width="60" height="60" class="rounded-circle">
+                          @else
+                          <img src="{{ url('assets/images/no-image.png') }}" alt="" width="60" height="60" class="rounded-circle">
+                          @endif
+                      </td> --}}
                         <td>
-                          <a type="button" class="btn btn-sm btn-primary" href="{{ url('departments-edit/' . $row->id) }}">Edit</a>
+                          <a type="button" class="btn btn-sm btn-primary" href="{{ url('services-edit/' . $service->id) }}">Edit</a>
                         </td>
                       </tr>
                     @endforeach
