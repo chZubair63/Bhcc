@@ -80,7 +80,7 @@
 
 							<!-- Text -->
 							<p>Have a question? Want to book an appointment for yourself or your children? Give us a call
-							   or send an email to contact the Farhat Hospital.
+							   or send an email to contact the Farhat Hospital.  
 							</p>
 								
 						</div>
