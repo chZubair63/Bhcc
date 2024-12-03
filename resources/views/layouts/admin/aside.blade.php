@@ -141,15 +141,17 @@
             </ul>
 
           </li>
+          <li class="nav-item has-treeview {{$userm??''}}">
+
           <li class="nav-item has-treeview ">
 
-            <a href="#" class="nav-link {{$umanagement??''}}">
+            <a href="#" class="nav-link {{$mcms??''}}">
 
               <i class="nav-icon fas fa-user"></i>
 
               <p>
 
-index page
+ CMS
                 <i class="fas fa-angle-left right"></i>
 
                
@@ -169,7 +171,7 @@ index page
 
               <li class="nav-item">
 
-                <a href="{{ url('schedules') }}" onclick="showLoading()" class="nav-link {{$mrole??''}}">
+                <a href="{{ url('schedules') }}" onclick="showLoading()" class="nav-link {{$mscedules??''}}">
 
                   <i class="far fa-circle nav-icon"></i>
 
@@ -182,7 +184,7 @@ index page
 
               <li class="nav-item">
 
-                <a href="{{url('departments')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+                <a href="{{url('departments')}}" onclick="showLoading()" class="nav-link {{$mdepartments??''}}">
 
                   <i class="far fa-circle nav-icon"></i>
 
@@ -230,6 +232,64 @@ index page
 
               </li>
 
+
+
+
+
+
+              <li class="nav-item">
+
+                <a href="{{url('doctors')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>Doctors</p>
+
+                </a>
+
+              </li>
+
+
+
+
+              <li class="nav-item">
+
+                <a href="{{url('Management')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>Mangement</p>
+
+                </a>
+
+              </li>
+
+
+              <li class="nav-item">
+
+                <a href="{{url('managingpartners')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>Managing Partners</p>
+
+                </a>
+
+              </li>
+
+
+              <li class="nav-item">
+
+                <a href="{{url('blogs')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>Blogs</p>
+
+                </a>
+
+              </li>
+
         
 
     
@@ -237,6 +297,7 @@ index page
             </ul>
 
           </li>
+        </li>
 
   
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 @php
-$administrationm = 'menu-open';
-$amanagement = $mmeasurable_criteria = 'active';
+$mcms = 'menu-open';
+$smanagement = $mscedules = 'active';
 @endphp
 @include('layouts.admin.tableheader')
 

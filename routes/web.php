@@ -191,3 +191,67 @@ Route::get('founder-edit/{id}', [FounderController::class, 'edit'])->name('found
 // Route to handle the form submission to update an existing founder
 Route::put('founder-update/{id}', [FounderController::class, 'update'])->name('founder.update');
 
+// Routes for Doctors
+use App\Http\Controllers\DoctorController;
+
+Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index'); // Display the list of doctors
+// Route::get('/doctors/create', [DoctorController::class, 'create'])->name('doctors.create'); // Show form to add a new doctor
+Route::post('/doctors', [DoctorController::class, 'store'])->name('doctors.store'); // Handle the submission of the form to store a new doctor
+// Route::get('/doctors-edit', [DoctorController::class, 'edit'])->name('doctors.edit'); // Show form to edit an existing doctor
+Route::PUT('/doctors/{id}', [DoctorController::class, 'update'])->name('doctors.update'); // Handle the submission of the form to update an existing doctor
+Route::get('/doctors-add', [DoctorController::class, 'create'])->name('doctors.create');
+Route::get('doctors-edit/{id}', [DoctorController::class, 'edit'])->name('doctors.edit');
+
+
+use App\Http\Controllers\ManagementController;
+
+// Routes for Management
+Route::get('/Management', [ManagementController::class, 'index'])->name('admin.indexpage.Management.index');
+Route::get('/Management-create', [ManagementController::class, 'create'])->name('Management.create'); // Show form to add a new management
+Route::post('/Management', [ManagementController::class, 'store'])->name('Management.store'); // Handle the submission of the form to store a new management
+Route::get('/Management-edit/{id}', [ManagementController::class, 'edit'])->name('Management.edit'); // Show form to edit an existing management
+Route::put('/Management-update/{id}', [ManagementController::class, 'update'])->name('Management.update'); // Handle the submission of the form to update an existing management
+
+
+
+use App\Http\Controllers\BlogController;
+
+
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/create', [BlogController::class, 'create'])->name('blogs.create');
+Route::post('blogs-store', [BlogController::class, 'store'])->name('blogs-store');
+Route::prefix('admin')->name('admin.')->group(function() {
+ Route::resource('blogs', BlogController::class);});
+Route::post('blogs-update/{id}', [BlogController::class, 'update'])->name('blogs.update');
+   
+
+use App\Http\Controllers\ManagingpartnersController;
+
+Route::resource('managingpartners', ManagingpartnersController::class);
+
+Route::get('/index', [ManagingpartnersController::class, 'index'])->name('managingpartners.index');
+Route::get('/create', [ManagingpartnersController::class, 'create'])->name('managingpartners.create');
+Route::post('managingpartners-store', [ManagingpartnersController::class, 'store'])->name('managingpartners-store');
+Route::prefix('admin')->name('admin.')->group(function(){Route::resource('blogs', ManagingpartnersController::class);});
+Route::post('managingpartners-update/{id}', [ManagingpartnersController::class, 'update'])->name('managingpartners.update');
+
+
+
+use App\Http\Controllers\WebsiteController;
+
+
+Route::get('/', [WebsiteController::class, 'index']);
+Route::get('/about-us', [WebsiteController::class, 'aboutUs'])->name('aboutus');
+Route::get('/departments', [WebsiteController::class, 'departments'])->name('departments');
+Route::get('/ourdoctors', [WebsiteController::class, 'ourdoctors'])->name('ourdoctors');
+Route::get('/appointment', [WebsiteController::class, 'appointment'])->name('appointment');
+Route::get('/ourservices', [WebsiteController::class, 'ourservices'])->name('ourservices');
+Route::get('/doctorprofile', [WebsiteController::class, 'doctorprofile'])->name('doctorprofile');
+Route::get('/departmenttype', [WebsiteController::class, 'departmenttype'])->name('departmenttype');
+Route::get('/contactus', [WebsiteController::class, 'contactus'])->name('contactus');
+Route::get('/privicypolicy', [WebsiteController::class, 'privicypolicy'])->name('privicypolicy');
+Route::get('/bloogs', [WebsiteController::class, 'blogs'])->name('bloogs');
+Route::get('/doctortimetable', [WebsiteController::class, 'doctortimetable'])->name('doctortimetable');
+
+// Route::get('/blog/{slug}', [WebsiteController::class, 'show'])->name('blog.show');
+// Route::get('/Blogr/{id}', [BlogrController::class, 'show'])->name('Blogr.show');
