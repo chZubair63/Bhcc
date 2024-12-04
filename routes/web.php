@@ -218,10 +218,11 @@ use App\Http\Controllers\BlogController;
 
 
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
-Route::get('/create', [BlogController::class, 'create'])->name('blogs.create');
+Route::get('blogs/create', [BlogController::class, 'create'])->name('blogs.create');
 Route::post('blogs-store', [BlogController::class, 'store'])->name('blogs-store');
 Route::prefix('admin')->name('admin.')->group(function() {
- Route::resource('blogs', BlogController::class);});
+    Route::resource('blogs', BlogController::class);
+});
 Route::post('blogs-update/{id}', [BlogController::class, 'update'])->name('blogs.update');
    
 
