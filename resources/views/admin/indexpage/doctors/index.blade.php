@@ -90,15 +90,9 @@ $amanagement=$mdoctors='active';
                                                 <td>{{$doctor-> diploma_certifcate}}</td>
                                                 <td>{{$doctor-> email}}</td>
                                                 <td>{{ $doctor->phone ? $doctor->phone : 'No phone number' }}</td>
-
-
-
-
-
                                                 <td>
-                                                    <img src="{{ asset('storage/'.$doctor->image) }}" alt="Doctor Image" style="width: 80px; height: 80px; object-fit: cover;">
+                                                    <img src="{{asset('storage/assets/images/doctor/'.$doctor->image)}}" alt="Doctor Image" style="width: 80px; height: 80px; object-fit: cover;">
                                                 </td>
-
                                                 <td>
                                                     <!-- <a type="button" class="btn btn-sm btn-primary" href="{{ route('doctors.edit', $doctor->id) }}">Edit</a> -->
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Doctor;
 
 class WebsiteController extends Controller
 {
@@ -30,8 +31,13 @@ public function departments()
 
 public function ourdoctors()
 {
-    return view('website.screens.ourdoctors');
+        // Fetch all doctors from the database
+        $doctors = Doctor::all();
+
+        // Return the view with doctors data
+        return view('website.screens.ourdoctors', compact('doctors'));
 }
+
 
 
 public function appointment()

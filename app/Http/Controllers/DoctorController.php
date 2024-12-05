@@ -24,46 +24,35 @@ class DoctorController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'image' => 'nullable|image',
-            'description' => 'required|string|max:1000',
-            'education_training' => 'required|string|max:255',
-            'degrees' => 'required|string|max:255',
-            'area_of_expertise' => 'required|string|max:255',
-            'languages' => 'required|string|max:50',
-            'work_days' =>  'required|string|max:100',
-            'diploma_certifcate' => 'required|string|max:100',
-            'email' => 'required|string|max:50',
-            'phone' => 'required|string|max:20',
+        //dd($request);
+        $doctor = Doctor::where('id', $request->id)->first();
+        $message = 'Doctor is updated successfully';
 
-
-
-        ]);
-
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('doctors', 'public'); // Store the image in 'doctors' folder in public disk
+        if (!$doctor) {
+            $doctor = new Doctor;
+            $message = 'Course is created successfully';
         }
 
-        Doctor::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'education_training' => $request->input('education_training'),
-            'degrees' => $request->input('degrees'),
-            'area_of_expertise' => $request->input('area_of_expertise'),
-            'languages' => $request->input('languages'),
-            'work_days' => $request->input('work_days'),
-            'diploma_certifcate' => $request->input('diploma_certifcate'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
+        if ($file = $request->file('image')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('storage/assets/images/doctor', $name);
+            $doctor->image = $name; // Corrected from $center->image
+        }
+        $doctor->name = $request->name;
+        $doctor->description = $request->description;
+        $doctor->education_training = $request->education_training;
+        $doctor->degrees = $request->degrees;
+        $doctor->area_of_expertise = $request->area_of_expertise;
+        $doctor->languages = $request->languages;
+        $doctor->work_days = $request->work_days;
+        $doctor->diploma_certifcate = $request->diploma_certifcate;
+        $doctor->email = $request->email;
+        $doctor->phone = $request->phone;
+        $doctor->save();
 
-
-            'image' => $imagePath, // Store the image path
-        ]);
-
-        return redirect()->route('doctors.index')->with('feedback', 'Doctor record added successfully!');
+        return redirect()->route('doctors.index')->with('feedback', $message);
     }
+
 
     public function edit($id)
     {

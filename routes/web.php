@@ -196,7 +196,7 @@ use App\Http\Controllers\DoctorController;
 
 Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index'); // Display the list of doctors
 // Route::get('/doctors/create', [DoctorController::class, 'create'])->name('doctors.create'); // Show form to add a new doctor
-Route::post('/doctors', [DoctorController::class, 'store'])->name('doctors.store'); // Handle the submission of the form to store a new doctor
+Route::post('/doctor-store', [DoctorController::class, 'store'])->name('doctors-store'); // Handle the submission of the form to store a new doctor
 // Route::get('/doctors-edit', [DoctorController::class, 'edit'])->name('doctors.edit'); // Show form to edit an existing doctor
 Route::PUT('/doctors/{id}', [DoctorController::class, 'update'])->name('doctors.update'); // Handle the submission of the form to update an existing doctor
 Route::get('/doctors-add', [DoctorController::class, 'create'])->name('doctors.create');

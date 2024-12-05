@@ -32,15 +32,8 @@ $amanagement = $mcourses = 'active';
                     @endif
 
                     <!-- Add/Update Form -->
-                    <form
-                        action="{{ isset($doctor) && $doctor->id ? route('doctors.update', $doctor->id) : route('doctors.store') }}"
-                        method="POST"
-                        enctype="multipart/form-data">
+                    <form action="{{url('doctor-store')}}" method='post' enctype="multipart/form-data">
                         @csrf
-                        @if(isset($doctor))
-                        @method('PUT') <!-- Use PUT for updates -->
-                        @endif
-
                         <div class="card card-default">
                             <div class="card-header">
                                 <h2 class="card-title">{{ isset($doctor) ?'Edit Doctor':'Add new Doctor'}}</h2>
@@ -56,6 +49,7 @@ $amanagement = $mcourses = 'active';
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="name">Doctor Name</label>
+                                            <input type='hidden' name='id' value='{{old("id")??$doctor->id ??""}}' required class='form-control'>
                                             <input
                                                 type="text"
                                                 class="form-control"
@@ -203,7 +197,7 @@ $amanagement = $mcourses = 'active';
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="image">Choose File</label>
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="image" value="" class="form-control">
                                 </div>
                             </div>
 
