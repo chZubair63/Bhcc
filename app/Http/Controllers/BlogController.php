@@ -43,8 +43,8 @@ class BlogController extends Controller
         $request->validate([
             'name' => 'required|string|max:30',
             'description' => 'required|string|max:1000',
-            'heading' => 'required|string|max:20',
-            'image' => 'nullable|image|mimes:jpg,png,svg|max:2048',
+            'heading' => 'required|string|max:255',
+            'image' => 'nullable|image',
         ]);
 
        
@@ -88,40 +88,35 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Validate incoming data
         $request->validate([
-            'name' => 'required|string|max:30',
-            'description' => 'required|string|max:1000',
-            'heading' => 'required|string|max:20',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'heading' => 'required|string|max:255',
+            'image' => 'nullable|image',
         ]);
 
+        // Find the blog entry by ID
         $blog = Blog::findOrFail($id);
 
-        $blog->name = $request->name;
-        $blog->description = $request->description;
-        $blog->heading = $request->heading;
-        $blog->image = $filePath ?? null; // Store file path or null
+        // Update fields with new values from the request
+        $blog->name = $request->input('name');
+        $blog->description = $request->input('description');
+        $blog->heading = $request->input('heading');
 
+        // Handle the image upload if a new image is provided
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('uploads/blogs', $fileName, 'public');
-    
-            // Optionally delete the old image file
-            if ($blog->image && Storage::disk('public')->exists($blog->image)) {
-                Storage::disk('public')->delete($blog->image);
+            $imagePath = $request->file('image')->store('blogs', 'public');
+            $blog->image = $imagePath;
         }
 
-
-
-
-            
-
+        // Save the updated blog entry
         $blog->save();
 
-        return redirect()->route('admin.blogs.index')->with('success', 'Blog updated successfully!');
+        // Redirect back with a success message
+        return redirect('blogs')->with('success', 'Blog updated successfully.');
     }
 
-  
-    }
+
+    
 }

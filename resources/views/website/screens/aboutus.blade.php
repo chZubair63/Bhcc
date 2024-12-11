@@ -66,96 +66,19 @@
                                 </p>
                         
                                 <div style="display: flex; flex-wrap: wrap;">
+                                    @foreach($corevalues as $corevalue)
+
                                     <!-- Core Value 1: Integrity -->
                                     <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{url('website/images/coreicon/compassion.png')}}" alt="Integrity" style="width: 50px; hight:50px; margin-right: 15px;">
+                                        <img src="{{ asset('storage/' . $corevalue->image) }}" alt="Core Value Image" width="50">
                                         <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Compassion</h4>
-                                            <p style="margin: 0; color: #666;">We provide care with empathy and kindness, understanding the unique needs and concerns of each patient and their families</p>
+                                            <h4 style="font-size: 18px; margin: 0;">{{ $corevalue->name }}</h4>
+                                            <p style="margin: 0; color: #666;">{{ $corevalue->description }}</p>
                                         </div>
                                     </div>
                         
-                                    <!-- Core Value 2: Nurturing -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{url('website/images/coreicon/excellence.png')}}" alt="Nurturing" style="width: 50px; hight:50px margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Excellence</h4>
-                                            <p style="margin: 0; color: #666;">We are committed to achieving the highest standards of medical care through continuous improvement, advanced technology, and skilled professionals.</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- Core Value 3: Trust -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{url('website/images/coreicon/Respect.png')}}" alt="Trust" style="width: 50px; hight:50px; margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Respect</h4>
-                                            <p style="margin: 0; color: #666;">We honor the dignity and individuality of every person, ensuring a supportive and inclusive environment for patients, families, and staff.</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- Core Value 4: Excellence -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{url('website/images/coreicon/Collaboration.png')}}" alt="Excellence" style="width: 50px; hight:50px; margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Collaboration</h4>
-                                            <p style="margin: 0; color: #666;">We work together as a unified team, valuing each member’s contributions and promoting open communication to enhance patient care and outcomes.</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- Core Value 5: Grounded -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{url('website/images/coreicon/Innovation.png')}}" alt="Grounded" style="width: 50px; hight:50px; margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Innovation</h4>
-                                            <p style="margin: 0; color: #666;">We embrace new ideas and practices to advance medical treatments and improve healthcare delivery, staying at the forefront of medical advancements.</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- Core Value 6: Respect -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{url('website/images/coreicon/Patient-Centered Care.png')}}" alt="Respect" style="width: 50px; hight:50px; margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Patient-Centered Care</h4>
-                                            <p style="margin: 0; color: #666;">We prioritize the needs and preferences of our patients, tailoring our services to ensure a personalized and compassionate healthcare experience.</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- Core Value 7: Accessible -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{('website/images/coreicon/safety.png')}}" alt="Accessible" style="width: 50px; hight:50px; margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Safety</h4>
-                                            <p style="margin: 0; color: #666;">We are dedicated to maintaining a safe environment for both patients and staff, adhering to the highest standards of clinical and operational safety</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- Core Value 8: Teamwork -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{('website/images/coreicon/Teamwork.jpeg')}}" alt="Teamwork" style="width: 50px; hight:50px; margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Teamwork</h4>
-                                            <p style="margin: 0; color: #666;">Combining experience and expertise with optimum team cohesion</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- Additional Values -->
-                                    <!-- Core Value 9: Empathetic -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{url('website/images/coreicon/Integrity.png')}}" alt="Empathetic" style="width: 50px; hight:50px; margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Integrity</h4>
-                                            <p style="margin: 0; color: #666;">Promoting an empathy-driven culture, ensuring to put the patient first</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- Core Value 10: Dependable -->
-                                    <div style="flex-basis: 50%; display: flex; align-items: center; margin-bottom: 20px;">
-                                        <img src="{{('website/images/coreicon/Dependable.png')}}" alt="Dependable" style="width: 50px; hight:50px; margin-right: 15px;">
-                                        <div>
-                                            <h4 style="font-size: 18px; margin: 0;">Dependable</h4>
-                                            <p style="margin: 0; color: #666;">Encouraging commitment to patient-centeredness through enhanced reliability</p>
-                                        </div>
-                                    </div>
+                                   
+                                @endforeach
                                 </div>
                             </div>
                         </div>      
@@ -166,12 +89,14 @@
     <!-- Partners Section -->
 
     <div class="row">
+        @foreach($founders as $founder)
+
         <!-- First Founder Card -->
         <div class="col-md-6">
             <div class="founders-card shadow p-4 mb-4 bg-white rounded">
                 <div class="row align-items-center">
                     <div class="col-5">
-                        <img src="{{url('website/images/doctor-5.jpg')}}" class="img-fluid" style="border-radius: 12px; height: 220px; width: 100%;">
+                        <img src="{{ asset('storage/' . $founder->image) }}" class="img-fluid" style="border-radius: 12px; height: 220px; width: 100%;" alt="Founder Image">
                     </div>
                     <div class="col-7">
                         <blockquote class="blockquote" style="font-size: 1.2em; font-style: italic; color: #555;">
@@ -180,58 +105,28 @@
                     </div>
                 </div>
                 <div class="founders-details mt-4">
-                    <h5 style="font-weight: bold; color: #2c3e50;">Dr. Saeed Ahmad Kamyana</h5>
-                    <p class="text-muted mb-1">Founder</p>
+                    <h5 style="font-weight: bold; color: #2c3e50;">{{ $founder->name }}</h5>
+                    <p class="text-muted mb-1">{{ $founder->heading }}</p>
                     <p class="text-justify">
-                        Dr. Saeed, a distinguished graduate of King Edward Medical College, 
-                        is a founding member of Farhat hospital, where his expertise as an
-                         ENT specialist has significantly influenced our medical community.
-                          With a robust career that culminated in his retirement as the Director
-                           of Health for the Sahiwal Division, Dr. Saeed has dedicated his life 
-                           to advancing healthcare standards. His leadership and commitment 
-                           to patient care have been instrumental in shaping the values and 
-                           vision of our institution, ensuring that we provide exceptional
-                            medical services to the community. Dr. Saeed's wealth of experience 
-                            and passion for medicine continue to inspire both staff and patients alike.
+                        {{ $founder->description }}
                     </p>
                 </div>
             </div>
         </div>
-        <!-- Second Founder Card -->
-        <div class="col-md-6">
-            <div class="partners-card shadow p-4 mb-4 bg-white rounded">
-              <div class="row align-items-center">
-                    <div class="col-5">
-                        <img src="{{url('website/images/doctor-5.jpg')}}" class="img-fluid" style="border-radius: 12px; height: 220px; width: 100%;">
-                    </div>
-                    <div class="col-7">
-                        <blockquote class="blockquote" style="font-size: 1.2em; font-style: italic; color: #555;">
-                            "This is a thematic hospital built on the concept of integrated healthcare and standardized way of treatment."
-                        </blockquote>
-                    </div>
-                 </div>
-                  <div class="partners-details mt-4">
-                    <h5 style="font-weight: bold; color: #2c3e50;">Mrs. Aasia Saeed</h5>
-                    <p class="text-muted mb-1">Founder & Chief Executive Officer</p>
-                    <p class="text-justify">
-                        As the CEO of Farhat Hospital in Sahiwal and one of its founding members, Mrs. Aasia Saeed plays a pivotal role in advancing healthcare in the region. Beginning her journey at St. Mary’s Convent Sahiwal, she has distinguished herself with a solid educational foundation, holding a Master’s degree in English from Bahauddin Zikriya University, Multan.
-                        Beyond healthcare, Mrs. Aasia Saeed is deeply committed to community service, holding leadership roles in organizations such as Inner Wheel International Club Sahiwal and APWA Sahiwal. Her active involvement in social welfare demonstrates her dedication to uplifting her community.
-                        With a proven track record of leadership and service, Mrs. Aasia Saeed continues to make significant contributions to both education and healthcare in Sahiwal.
-                        This i got from IMC hospital and alter that for Farhat hospital Sahiwal
-                    </p>
-                  </div>
-            </div>
-        </div>
+        @endforeach
+       
     </div>            
 </div>
                <div id="partners" style="display: none; ">                   
                         <!-- Partners Section -->
                      <div class="row">
+                        @foreach($managingpartners as $row)
+
                             <!-- First Founder Card -->
                          <div class="col-6">
                           <div class="partners-card ">
                             <div class="row"> <div class="col-5">
-                                        <img src="{{url('website/images/doctor-5.jpg')}} " height="220px"; width="200px" style="border-radius: 12px">
+                                        <img src="{{ asset('storage/'.$row->image) }} " height="220px"; width="200px" style="border-radius: 12px">
                                     </div>
                                     <div class="col-7">
                                         <blockquote style="font-size: 1.2em;">
@@ -240,137 +135,48 @@
                                     </div>
                             </div>     
                                     <div class="partners-details">
-                                        <h5>Mr. Adnan Rasool</h5>
+                                        <h5>{{ $row->name }}</h5>
                                         
-                                        <p>Manging Partner</p>
-                                        {{-- <p>Prof. Dr. Saeed Ahmad Kamyana is a renowned eye surgeon in Pakistan with over 40 years of experience at both national and international levels. He has served as the Head & Professor of Ophthalmology in top hospitals and has published numerous papers in peer-reviewed journals.</p> --}}
+                                        <p>{{ $row->heading }}</p>
+                                    <p>{{ $row->description }}</p>
                                     </div>
                            </div>
                          </div>
-                            <!-- Second Founder Card -->
-                         <div class="col-6">
-                            <div class="partners-card ">
-                                 <div class="row"> <div class="col-5">
-                                        <img src="{{url('website/images/doctor-5.jpg')}} " height="220px"; width="200px" style="border-radius: 12px">
-                                    </div>
-                                    <div class="col-7"><blockquote style="font-size: 1.2em">This is a thematic hospital built on the concept of integrated healthcare and standardized way of treatment.</blockquote>
-                                    </div>
-                                 </div>
-                                    <div class="partners-details">
-                                        <h5>Mr. Nasir Malik</h5>
-                                        <p>Managing Partner</p>
-                                        {{-- <p>Prof. Dr. Saeed Ahmad Kamyana is a renowned eye surgeon in Pakistan with over 40 years of experience at both national and international levels. He has served as the Head & Professor of Ophthalmology in top hospitals and has published numerous papers in peer-reviewed journals.</p> --}}
-                                    </div>
-                             </div>
-                         </div>
-                      </div>                               
+                       
+                         @endforeach
+
+                      </div>   
+                      
+
                  </div>
                         <!-- Management Section -->
                         <div id="management" style="display: none;">
                            
                             <div class="container">
+  
+
                                 <div class="row">
+                                    @foreach($managements as $management)
+
                                     <!-- DOCTOR #1 -->
                                     <div class="col-md-3 col-lg-3">
                                         <div class="doctor-2" style="width: 250px; height: 320px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <div class="image-hover" style="background-image: url('website/images/manicon.jpg'); height: 200px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">Muhammad Bin Abid</h5>
-                                                <span>Medical Director</span>
+                                            <div class="image-hover" style="background-image: url('{{ asset('storage/' . $management->image) }}'); height: 200px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;">
+                                            </div>
+                                             <div class="doctor-meta">
+                                                <h5 class="h5-xs blue-color">{{$management->name}}</h5>
+                                                <span>{{ $management->designation }}</span>
+
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-lg-3">
-                                        <div class="doctor-2" style="width: 250px; height: 320px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <!-- Doctor Photo -->
-                                            <div class="image-hover" style="background-image: url('website/images/womanicon.png'); height: 200px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <!-- Doctor Meta -->
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">Dr Rohma Saeed</h5>
-                                                <span>Assistant Medical Director</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-lg-3">
-                                        <div class="doctor-2" style="width: 250px; height: 320px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <div class="image-hover" style="background-image: url('website/images/manicon.jpg'); height: 200px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">Adnan Rasool</h5>
-                                                <span>Adminsitrator</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-lg-3">
-                                        <div class="doctor-2" style="width: 250px; height: 350px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <div class="image-hover" style="background-image: url('website/images/manicon.jpg'); height: 200px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">Mr. Nasir Malik</h5>
-                                                <span>Marketing Head</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
+                                    @endforeach
+
+                                 
                                 </div>
                                 
-                                <!-- Second Row -->
-                                <div class="row">
-                                    <!-- DOCTOR #5 -->
-                                    <div class="col-md-3 col-lg-3">
-                                        <div class="doctor-2" style="width: 250px; height: 350px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <div class="image-hover" style="background-image: url('website/images/manicon.jpg'); height: 240px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">M. Noman</h5>
-                                                <span>Pharmacy In charge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                            
-                                    <!-- DOCTOR #6 -->
-                                    <div class="col-md-3 col-lg-3">
-                                        <div class="doctor-2" style="width: 250px; height: 350px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <div class="image-hover" style="background-image: url('website/images/manicon.jpg'); height: 240px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">Rizwan Malik</h5>
-                                                <span>Accountant</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                            
-                                    <!-- DOCTOR #7 -->
-                                    <div class="col-md-3 col-lg-3">
-                                        <div class="doctor-2" style="width: 250px; height: 350px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <div class="image-hover" style="background-image: url('website/images/manicon.jpg'); height: 240px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">Rehan</h5>
-                                                <span>Lab In charge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                            
-                                    <!-- DOCTOR #8 -->
-                                    <div class="col-md-3 col-lg-3">
-                                        <div class="doctor-2" style="width: 250px; height: 350px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <div class="image-hover" style="background-image: url('website/images/manicon.jpg'); height: 240px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">Waqar Danish</h5>
-                                                <span>Hr Head</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="col-md-3 col-lg-3">
-                                        <div class="doctor-2" style="width: 250px; height: 350px; overflow: hidden; transition: box-shadow 0.3s ease;">
-                                            <div class="image-hover" style="background-image: url('website/images/nurse.jpeg'); height: 240px; background-size: cover; background-position: center; border-radius: 12px; transition: transform 0.3s ease;"></div>
-                                            <div class="doctor-meta">
-                                                <h5 class="h5-xs blue-color">Zahida</h5>
-                                                <span>Nursing Director</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                            
-                                </div>
+                               
                             </div>
                             
                             <!-- CSS for hover effect -->

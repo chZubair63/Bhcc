@@ -96,7 +96,7 @@
                     <a href="{{ url('about-us') }}" class="{{ Request::is('about-us') ? 'active' : '' }}">About Us</a>
                 </li>
                 <li class="nl-simple" aria-haspopup="true">
-                    <a href="{{ url('departments') }}" class="{{ Request::is('departments') ? 'active' : '' }}">Departments</a>
+                    <a href="{{ url('departmentss') }}" class="{{ Request::is('departments') ? 'active' : '' }}">Departments</a>
                 </li>
                 <li class="nl-simple" aria-haspopup="true">
                     <a href="{{ url('ourdoctors') }}" class="{{ Request::is('ourdoctors') ? 'active' : '' }}">Our Doctors</a>

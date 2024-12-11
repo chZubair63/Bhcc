@@ -290,6 +290,33 @@
 
               </li>
 
+
+
+              <li class="nav-item">
+
+                <a href="{{url('corevalues')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>Core Values</p>
+
+                </a>
+
+              </li>
+
+              <li class="nav-item">
+
+                <a href="{{url('indextop')}}" onclick="showLoading()" class="nav-link {{$mperm??''}}">
+
+                  <i class="far fa-circle nav-icon"></i>
+
+                  <p>Index Top</p>
+
+                </a>
+
+              </li>
+
+
         
 
     

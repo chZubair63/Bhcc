@@ -258,33 +258,33 @@
 				<div class="container">
 					<div class="row">
 
+						@foreach($indextops as $indextop)
 
 						<!-- ABOUT BOX #1 -->
 						<div class="col-lg-4">
 							<div class="abox-4 mb-40 wow fadeInUp" data-wow-delay="0.4s">
 
 								<!-- Image -->
-								<img class="img-fluid" src="{{url('website/images/quality_care_800x600.jpg')}}" alt="about-image" />	
+								<img class="img-fluid" src="{{ asset('storage/' . $indextop->image) }}" alt="Index Top Image">
 									
 								<!-- Text -->
 								<div class="abox-4-txt">
 
 									<!-- Title -->
-									<h5 class="h5-xs steelblue-color"><a href="#">Highest Quality Care</a></h5>
+									<h5 class="h5-xs steelblue-color">{{ $indextop->name }}</h5>
 
 									<!-- Text -->
-									<p>We are committed to delivering the highest quality care by
-										combining cutting-edge technology with expert medical professionals 
-										and compassionate service, ensuring each patient receives exceptional and personalized treatment for the best outcomes.
+									<p>{{ $indextop->discription }}
 									</p>
 								</div>
 
 							</div>
 						</div>
+						@endforeach
 
 
 						<!-- ABOUT BOX #2 -->
-						<div class="col-lg-4">
+						{{-- <div class="col-lg-4">
 							<div class="abox-4 mb-40 wow fadeInUp" data-wow-delay="0.6s">
 
 								<!-- Image -->
@@ -305,50 +305,61 @@
 								</div>
 
 							</div>
-						</div>
+						</div> --}}
 
 
 						<!-- ABOUT BOX #3 -->
 						<div class="col-lg-4">
-							<div class="abox-4 abox-4-table blue-table mb-40 wow fadeInUp" data-wow-delay="0.6s">
+							<div class="services-7-table blue-table mb-30 wow fadeInUp" data-wow-delay="0.6s">
 
 								<!-- Title -->
-								<h5 class="h5-sm">Working Time</h5>
+
+								<h4 class="h4-xs">Opening Hours:</h4>
 
 								<!-- Text -->
-								<p>Our hospital is open 24/7, ensuring that you receive the care you need at any time. Whether it's day or night, our dedicated team is here to provide continuous support and medical assistance.
+								<p class="p-sm">General checkups
 								</p>
 
 								<!-- Table -->
 								<table class="table">
+									@foreach($schedules as $row)
+
 									<tbody>
 									    <tr>
-									      	<td>Mon – Wed</td>
+									      	<td>{{$row->day}}</td>
 									      	<td> - </td>
-									      	<td class="text-right">Open 24 Hours</td>
+									      	<td class="text-right">{{{$row->start_time}}}</td>
+											  <td> - </td>
+											  <td class="text-right">{{$row->end_time}}</td>
 									    </tr>
-									    <tr>
+										@endforeach
+
+									    {{-- <tr>
 									      	<td>Thursday</td>
 									      	<td> - </td>
-									      	<td class="text-right">Open 24 Hours</td>
-									    </tr>
-									     <tr>
-									      	<td>Friday</td>
+									      	<td class="text-right">10:00 AM-10:30 PM</td>
+									    </tr> --}}
+									     {{-- <tr>
+									      	<td>Friday-Saturday</td>
 									      	<td> - </td>
-									      	<td class="text-right">Open 24 Hours</td>
-									    </tr>
-									    <tr class="last-tr">
-									      	<td>Sun - Sun</td>
+									      	<td class="text-right">10:00 AM-10:00 PM</td>
+									    </tr> --}}
+									    {{-- <tr class="last-tr">
+									      	<td>Sun</td>
 									      	<td>-</td>
-									      	<td class="text-right">Open 24 Hours</td>
-									   	 </tr>
-											
-											
+									      	<td class="text-right">CLOSED</td>
+									   	 </tr> --}}
 									  </tbody>
 								</table>
 
-							</div>
-						</div>
+								<!-- Title -->
+								<h5 class="h5-sm">Need a personal health plan?</h5>
+
+								<!-- Text -->
+								<p class="p-sm">Opening hours for general checkups are available throughout the week from Monday to Saturday. The clinic remains closed on weekends.</p>
+
+							</div>	
+						</div>	<!-- END INFO TABLE -->
 
 
 					</div>    <!-- End row -->

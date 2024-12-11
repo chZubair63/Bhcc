@@ -76,6 +76,14 @@
                                             <textarea rows="3" class="form-control" name="description">{{ old('description') ?? $blog->description ?? '' }}</textarea>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Heading</label>
+                                            {{-- <input type="hidden" name="id" value="{{ old('id') ?? $blog->id ?? '' }}"> --}}
+                                            <input type="text" class="form-control" name="heading"
+                                                value="{{ old('heading') ?? $blog->heading ?? '' }}" required>
+                                        </div>
+                                    </div>
 
                                     <!-- Blog Image -->
                                     <div class="col-md-6">

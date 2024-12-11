@@ -124,208 +124,41 @@
 
 						<!-- SERVICE BOXES -->	
 						<div class="col-lg-8">
-							<div class="row">
+							<div class="row"><!-- SERVICE BOX #1 -->
+								@foreach($departments as $row)    
+								  <div class="col-md-6">
+									<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.4s">
+									  <a href="{{ url('departmenttype') }}">
+								
+										<!-- Icon -->
+										<span class="flaticon-083-stethoscope blue-color"></span>
+								
+										<!-- Text -->
+										<div class="sbox-7-txt">
+								
+										  <!-- Title -->
+										  <h5 class="h5-sm steelblue-color">{{ $row->name }}</h5>
+								
+										  <!-- Text -->
+										  <p class="p-sm">{{ $row->discription }}</p>
+								
+										</div>
+								
+									  </a>
+									</div>
+								  </div>  
+								<!-- END SERVICE BOX #1 -->
+								@endforeach
+								
 
 
-								<!-- SERVICE BOX #1 -->
-			 					<div class="col-md-6">
-			 						<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.4s">
-			 							<a href="{{url('departmenttype')}}">
-
-				 							<!-- Icon -->
-											<span class="flaticon-083-stethoscope blue-color"></span>
-
-											<!-- Text -->
-											<div class="sbox-7-txt">
-				
-												<!-- Title -->
-												<h5 class="h5-sm steelblue-color">Gynacology</h5>
-													
-												<!-- Text -->
-												<p class="p-sm">Our Hospital's Gynecology department offers expert women's care, including check-ups and treatments.
-												</p>
-
-											</div>
-
-										</a>
-			 						</div>
-			 					</div>  <!-- END SERVICE BOX #1 -->
-
-
-			 					<!-- SERVICE BOX #2 -->
-			 					<div class="col-md-6">
-			 						<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.6s">
-			 							<a href="{{url('departmenttype')}}">
-
-				 							<!-- Icon -->
-											<span class="flaticon-047-head blue-color"></span>
-
-											<!-- Text -->
-											<div class="sbox-7-txt">
-				
-												<!-- Title -->
-												<h5 class="h5-sm steelblue-color">Pediatrics</h5>
-													
-												<!-- Text -->
-												<p class="p-sm">Our Hospital's Pediatrics department offers expert children's care including check-ups and treatments.
-												</p>
-
-											</div>
-
-				 						</a>
-			 						</div>
-			 					</div>  <!-- END SERVICE BOX #2 -->
+			 				 <!-- END SERVICE BOX #2 -->
 
 
 			 					<!-- SERVICE BOX #3 -->
-			 					<div class="col-md-6">
-			 						<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.4s">
-			 							<a href="{{('departmenttype')}}">
-
-				 							<!-- Icon -->
-											<span class="flaticon-015-blood-donation-1 blue-color"></span>
-
-											<!-- Text -->
-											<div class="sbox-7-txt">
-				
-												<!-- Title -->
-												<h5 class="h5-sm steelblue-color">Cardiology</h5>
-													
-												<!-- Text -->
-												<p class="p-sm">Our Hospital's Cardiology department offers expert care for heart health and cardiovascular conditions.
-												</p>
-
-											</div>
-
-				 						</a>
-			 						</div>
-			 					</div>  <!-- END SERVICE BOX #3-->
+			 				  <!-- END SERVICE BOX #3-->
 
 
-			 					<!-- SERVICE BOX #4 -->
-			 					<div class="col-md-6">
-			 						<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.6s">
-			 							<a href="service-2.html">
-
-				 							<!-- Icon -->
-											<span class="flaticon-048-lungs blue-color"></span>
-
-											<!-- Text -->
-											<div class="sbox-7-txt">
-				
-												<!-- Title -->
-												<h5 class="h5-sm steelblue-color">Surgery</h5>
-													
-												<!-- Text -->
-												<p class="p-sm">Our Hospital's Surgery department provides expert surgical care with a focus on precision and patient recovery.
-												</p>
-
-											</div>
-
-				 						</a>
-			 						</div>
-			 					</div>  <!-- END SERVICE BOX #4 -->
-
-
-			 					<!-- SERVICE BOX #5 -->
-			 					<div class="col-md-6">
-			 						<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.4s">
-			 							<a href="service-1.html">
-
-				 							<!-- Icon -->
-											<span class="flaticon-060-cardiogram-4 blue-color"></span>
-
-											<!-- Text -->
-											<div class="sbox-7-txt">
-				
-												<!-- Title -->
-												<h5 class="h5-sm steelblue-color">Oncology</h5>
-													
-												<!-- Text -->
-												<p class="p-sm">Our Hospital's Oncology department offers specialized care for cancer diagnosis,treatment,and support.
-												</p>
-
-											</div>
-
-				 						</a>
-			 						</div>
-			 					</div>  <!-- END SERVICE BOX #5 -->
-
-
-			 					<!-- SERVICE BOX #6 -->
-			 					<div class="col-md-6">
-			 						<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.6s">
-			 							<a href="service-2.html">
-
-				 							<!-- Icon -->
-											<span class="flaticon-031-scanner blue-color"></span>
-
-											<!-- Text -->
-											<div class="sbox-7-txt">
-				
-												<!-- Title -->
-												<h5 class="h5-sm steelblue-color">Radiology</h5>
-													
-												<!-- Text -->
-												<p class="p-sm">Our Hospital's Radiology department provides advanced imaging for diagnosis and treatment planning.
-												</p>
-
-											</div>
-
-										</a>
-			 						</div>
-			 					</div>  <!-- END SERVICE BOX #6 -->
-
-
-			 					<!-- SERVICE BOX #7 -->
-			 					<div class="col-md-6">
-			 						<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.4s">
-			 							<a href="service-1.html">
-
-				 							<!-- Icon -->
-											<span class="flaticon-076-microscope blue-color"></span>
-
-											<!-- Text -->
-											<div class="sbox-7-txt">
-				
-												<!-- Title -->
-												<h5 class="h5-sm steelblue-color">Laboratory Services</h5>
-													
-												<!-- Text -->
-												<p class="p-sm">Our Hospital's Laboratory Services offers precise testing and analysis for accurate diagnosis and treatment.
-												</p>
-
-											</div>
-
-				 						</a>
-			 						</div>
-			 					</div>  <!-- END SERVICE BOX #7 -->
-
-
-			 					<!-- SERVICE BOX #8 -->
-			 					<div class="col-md-6">
-			 						<div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.6s">
-			 							<a href="service-2.html">
-
-				 							<!-- Icon -->
-											<span class="flaticon-068-ambulance-3 blue-color"></span>
-
-											<!-- Text -->
-											<div class="sbox-7-txt">
-				
-												<!-- Title -->
-												<h5 class="h5-sm steelblue-color">Emergency Help</h5>
-													
-												<!-- Text -->
-												<p class="p-sm">
-													Farhat Hospital's Emergency Help provides prompt and expert care for urgent medical situations.
-												</p>
-
-											</div>
-
-										</a>
-			 						</div>
-			 					</div>  <!-- END SERVICE BOX #8 -->
 
 			 					
 	 						</div>
@@ -333,10 +166,12 @@
 
 
 						<!-- INFO TABLE -->
+
 						<div class="col-lg-4">
 							<div class="services-7-table blue-table mb-30 wow fadeInUp" data-wow-delay="0.6s">
 
 								<!-- Title -->
+
 								<h4 class="h4-xs">Opening Hours:</h4>
 
 								<!-- Text -->
@@ -345,27 +180,33 @@
 
 								<!-- Table -->
 								<table class="table">
+									@foreach($schedules as $row)
+
 									<tbody>
 									    <tr>
-									      	<td>Mon – Wed</td>
+									      	<td>{{$row->day}}</td>
 									      	<td> - </td>
-									      	<td class="text-right">10:00 AM-10:00 PM</td>
+									      	<td class="text-right">{{{$row->start_time}}}</td>
+											  <td> - </td>
+											  <td class="text-right">{{$row->end_time}}</td>
 									    </tr>
-									    <tr>
+										@endforeach
+
+									    {{-- <tr>
 									      	<td>Thursday</td>
 									      	<td> - </td>
 									      	<td class="text-right">10:00 AM-10:30 PM</td>
-									    </tr>
-									     <tr>
+									    </tr> --}}
+									     {{-- <tr>
 									      	<td>Friday-Saturday</td>
 									      	<td> - </td>
 									      	<td class="text-right">10:00 AM-10:00 PM</td>
-									    </tr>
-									    <tr class="last-tr">
+									    </tr> --}}
+									    {{-- <tr class="last-tr">
 									      	<td>Sun</td>
 									      	<td>-</td>
 									      	<td class="text-right">CLOSED</td>
-									   	 </tr>
+									   	 </tr> --}}
 									  </tbody>
 								</table>
 

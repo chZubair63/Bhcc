@@ -198,7 +198,7 @@ Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index'
 // Route::get('/doctors/create', [DoctorController::class, 'create'])->name('doctors.create'); // Show form to add a new doctor
 Route::post('/doctors', [DoctorController::class, 'store'])->name('doctors.store'); // Handle the submission of the form to store a new doctor
 // Route::get('/doctors-edit', [DoctorController::class, 'edit'])->name('doctors.edit'); // Show form to edit an existing doctor
-Route::PUT('/doctors/{id}', [DoctorController::class, 'update'])->name('doctors.update'); // Handle the submission of the form to update an existing doctor
+Route::PUT('/doctors-update/{id}', [DoctorController::class, 'update'])->name('doctors.update'); // Handle the submission of the form to update an existing doctor
 Route::get('/doctors-add', [DoctorController::class, 'create'])->name('doctors.create');
 Route::get('doctors-edit/{id}', [DoctorController::class, 'edit'])->name('doctors.edit');
 
@@ -217,9 +217,11 @@ Route::put('/Management-update/{id}', [ManagementController::class, 'update'])->
 use App\Http\Controllers\BlogController;
 
 
-Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
-Route::get('/create', [BlogController::class, 'create'])->name('blogs.create');
+Route::get('/blogs', [BlogController::class, 'index'])->name('admin.indexpage.blogs.index');
+Route::get('blogs/create', [BlogController::class, 'create'])->name('blogs.create');
 Route::post('blogs-store', [BlogController::class, 'store'])->name('blogs-store');
+Route::get('blogs-edit/{id}', [BlogController::class, 'edit'])->name('blogs.edit');
+
 Route::prefix('admin')->name('admin.')->group(function() {
  Route::resource('blogs', BlogController::class);});
 Route::post('blogs-update/{id}', [BlogController::class, 'update'])->name('blogs.update');
@@ -237,12 +239,45 @@ Route::post('managingpartners-update/{id}', [ManagingpartnersController::class, 
 
 
 
+
+use App\Http\Controllers\CorevaluesController;
+
+// Core Values Routes
+
+    // Display the list of core values
+    Route::get('corevalues', [CorevaluesController::class, 'index'])->name('admin.indexpage.corevalues.index');
+
+    // Show the form to create a new core value
+    Route::get('corevalues-create', [CorevaluesController::class, 'create'])->name('corevalues.create');
+
+    // Store a new core value in the database
+    Route::post('corevalues-store', [CorevaluesController::class, 'store'])->name('corevalues.store');
+
+    // Show the form to edit an existing core value
+    Route::get('corevalues-edit/{id}', [CorevaluesController::class, 'edit'])->name('corevalues.edit');
+
+    // Update an existing core value in the database
+    Route::put('corevalues-update/{id}', [CorevaluesController::class, 'update'])->name('corevalues.update');
+
+    use App\Http\Controllers\IndextopController;
+
+    Route::get('indextop', [IndextopController::class, 'index'])->name('admin.indexpage.indextop.index');
+    Route::get('indextop-create', [IndextopController::class, 'create'])->name('indextop.create');
+    Route::post('indextop-store', [IndextopController::class, 'store'])->name('indextop.store');
+    Route::get('indextop-edit/{id}', [IndextopController::class, 'edit'])->name('indextop.edit');
+    Route::put('indextop-update/{id}', [IndextopController::class, 'update'])->name('indextop.update');
+    
+
+
+
+
+
 use App\Http\Controllers\WebsiteController;
 
 
 Route::get('/', [WebsiteController::class, 'index']);
 Route::get('/about-us', [WebsiteController::class, 'aboutUs'])->name('aboutus');
-Route::get('/departments', [WebsiteController::class, 'departments'])->name('departments');
+Route::get('/departmentss', [WebsiteController::class, 'departmentss'])->name('departmentss');
 Route::get('/ourdoctors', [WebsiteController::class, 'ourdoctors'])->name('ourdoctors');
 Route::get('/appointment', [WebsiteController::class, 'appointment'])->name('appointment');
 Route::get('/ourservices', [WebsiteController::class, 'ourservices'])->name('ourservices');
@@ -250,7 +285,7 @@ Route::get('/doctorprofile', [WebsiteController::class, 'doctorprofile'])->name(
 Route::get('/departmenttype', [WebsiteController::class, 'departmenttype'])->name('departmenttype');
 Route::get('/contactus', [WebsiteController::class, 'contactus'])->name('contactus');
 Route::get('/privicypolicy', [WebsiteController::class, 'privicypolicy'])->name('privicypolicy');
-Route::get('/bloogs', [WebsiteController::class, 'blogs'])->name('bloogs');
+Route::get('/blogss', [WebsiteController::class, 'blogss'])->name('blogss');
 Route::get('/doctortimetable', [WebsiteController::class, 'doctortimetable'])->name('doctortimetable');
 
 // Route::get('/blog/{slug}', [WebsiteController::class, 'show'])->name('blog.show');

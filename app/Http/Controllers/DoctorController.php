@@ -74,7 +74,6 @@ class DoctorController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
@@ -88,27 +87,37 @@ class DoctorController extends Controller
             'phone' => 'required|string|max:20',
             'image' => 'nullable|image',
         ]);
-
-        $doctor = Doctor::findOrFail($id); // Fetch the doctor by ID
-
-        $doctor->name = $request->input('name');
-
+    
+        $doctor = Doctor::findOrFail($id);
+    
+        // Update fields
+        $doctor->fill($request->only([
+            'name', 
+            'description', 
+            'education_training', 
+            'degrees', 
+            'area_of_expertise', 
+            'languages', 
+            'work_days', 
+            'diploma_certifcate', 
+            'email', 
+            'phone'
+        ]));
+    
         if ($request->hasFile('image')) {
+            // Delete old image if exists
             if ($doctor->image && Storage::exists('public/' . $doctor->image)) {
                 Storage::delete('public/' . $doctor->image);
             }
-
-            // Upload the new image and save the path
-            $imagePath = $request->file('image')->store('doctors', 'public');
-            $doctor->image = $imagePath;
+            // Store new image
+            $doctor->image = $request->file('image')->store('doctors', 'public');
         }
-
-        // Save the updated doctor record
+    
         $doctor->save();
-
-        // Redirect to the index page with a success message
+    
         return redirect()->route('doctors.index')->with('feedback', 'Doctor record updated successfully!');
     }
+    
 
 
     public function getPhoneAttribute($value)

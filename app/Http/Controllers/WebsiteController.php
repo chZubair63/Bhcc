@@ -1,6 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Department;
+use App\Models\Schedule;
+use App\Models\Services;
+use App\Models\Indextop;
+use App\Models\Managingpartners;
+use App\Models\Management;
+use App\Models\Founder;
+use App\Models\Corevalues;
+
+
+
+
+
+
+
 
 use Illuminate\Http\Request;
 
@@ -8,7 +23,13 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        return view('website.index');
+        $schedules =  Schedule::all();
+        $indextops =   Indextop::all();
+
+
+
+
+        return view('website.index'  ,compact('schedules','indextops'));
     }
     // public function aboutus(){
 
@@ -17,13 +38,25 @@ class WebsiteController extends Controller
     // }
     public function aboutUs()
 {
-    return view('website.screens.aboutus');
+ 
+    $managingpartners = Managingpartners ::all();
+    $managements = Management ::all();
+    $founders = Founder::all();
+    $corevalues = Corevalues::all();
+    
+    return view('website.screens.aboutus', compact('managingpartners','managements','founders','corevalues'));
+    
 }
  
 
-public function departments()
+public function departmentss()
 {
-    return view('website.screens.departments');
+    $departments = Department::all();
+    $schedules =  Schedule::all();
+
+        // Return the view with the departments data
+        return view('website.screens.departmentss', compact('departments','schedules'));
+    
 }
 
 
@@ -43,7 +76,10 @@ public function ourservices()
 
 
 {
-    return view('website.screens.ourservices');
+    $services = Services::all();
+
+    // Pass the data to the view
+    return view('website.screens.ourservices', compact('services'));
 }
 
 
@@ -65,8 +101,8 @@ public function contactus(){
 public function privicypolicy(){
     return view('website.screens.privicypolicy');
 }
-public function blogs(){
-    return view('website.screens.blogs');
+public function blogss(){
+    return view('website.screens.blogss');
 }
 
 

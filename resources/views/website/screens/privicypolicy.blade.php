@@ -1,18 +1,6 @@
 <!DOCTYPE html>
-<!-- MedService - Medical & Medical Health Landing Page Template design by Jthemes -->
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en">
-
-
-
-
-	
-<!-- Mirrored from jthemes.net/themes/html/medservices/files/terms.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 06 Aug 2024 06:02:31 GMT -->
 <head>
-
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="author" content="Jthemes"/>	
@@ -24,32 +12,8 @@
 		<title>Farhat Hospital|privicy policy</title>
 			@include('website.layouts.header')				
 		    
-	
 	</head>
-
-
-
-
 	<body>
-
-
-
-
-		{{-- <!-- PRELOADER SPINNER
-		============================================= -->	
-		<div id="loader-wrapper">
-			<div id="loader"><div class="loader-inner"></div></div>
-		</div>
- --}}
-
-
-
-	
-
-
-
-		<!-- PAGE CONTENT
-		============================================= -->	
 		<div id="page" class="page">
 			@include('website.layouts.nav')
 
@@ -77,12 +41,6 @@
 					</div>  <!-- End row -->	
 				</div>	<!-- End container -->		
 			</div>	<!-- END BREADCRUMB -->	
-
-
-
-
-			<!-- TERMS & PRIVACY
-			============================================= -->
 			<section id="terms-page" class="wide-80 terms-section division">
 				<div class="container">
 					<div class="row">
@@ -107,8 +65,7 @@
 										</p>	
 
 										<!-- Text -->
-										<p>Praesent aliquet lorem purus, quis mollis nisi laoreet vitae. Mauris nec consequat
-										   tortor. Duis fermentum a massa in convallis. Quisque eu ultrices enim, et interdum augue.
+										<p>By using Farhat Hospital’s services, you agree to the terms and conditions. Please review them regularly for any updates.
 										</p>
 
 									</div>
@@ -116,18 +73,17 @@
 									<!-- List -->
 									<ul class="terms-list">
 												
-										<li>Vivamus pretium tellus eget mi mattis, ut accumsan nunc vehicula. Donec mattis ex et
-										    aliquam aliquam. Maecenas at luctus augue. Donec nec leo ac libero pretium tincidunt
+										<li>The hospital offers a range of healthcare services, including consultations, diagnostics, and treatments.
 										</li>
 
-										<li>Aenean quis purus auctor, rhoncus est non, dictum arcu maximus integer interdum eget</li>
+										<li>Patients must provide accurate medical details and follow hospital guidelines for optimal care.
+										</li>
 
-										<li>Donec dolor magna, suscipit in magna dignissim, porttitor hendrerit gravida felis</li>
+										<li>Farhat Hospital ensures patient privacy and complies with all applicable privacy laws to protect your health information.</li>
 
-										<li>Aliquam varius neque commodo purus vulputate pharetra bibendum in ante id, ornare</li>
+										<li>The hospital is not liable for unforeseen risks associated with medical treatments. Patients should follow advice to reduce complications.</li>
 
-										<li>Morbi dui lectus, lobortis sit amet felis nec, suscipit imperdiet sapien. Proin semper 
-											ultrices ex, a sodales purus vehicula. Nunc gravida ultrices felis eget faucibus praesent aliquet 
+										<li>Disputes will be addressed through mediation, and legal action may be taken if needed.
 										</li>
 
 									</ul>
@@ -155,10 +111,7 @@
 									<h5 class="h5-xl steelblue-color">1. Collection of Information</h5>
 									
 									<!-- Text -->
-									<p>Donec sodales, nibh vel tristique aliquet, nisi libero suscipit diam, sed tempus ante nulla
-									   ut purus.Donec dolor magna, suscipit in magna dignissim, porttitor hendrerit. Nunc gravida 
-									   ultrices felis eget faucibus. Praesent aliquet lorem purus, quis mollis nisi laoreet vitae. 
-									   Mauris nec consequat tortor
+									<p>Farhat Hospital is a leading healthcare provider, renowned for its commitment to delivering high-quality medical treatment in a compassionate and patient-centered environment. The hospital is equipped with state-of-the-art facilities and a team of highly skilled professionals dedicated to addressing the diverse health needs of patients.
 									</p>
 
 									<!-- List -->
@@ -452,13 +405,6 @@
 					</div>     <!-- End row -->		
 				</div>	    <!-- End container -->
 			</section>	 <!-- END TERMS & PRIVACY -->
-
-
-
-
-			
-				
-		
 			@include('website.layouts.footer')
 			<script src="{{url('website/js/jquery-3.3.1.min.js')}}"></script>
 			<script src="{{url('website/js/bootstrap.min.js')}}"></script>	
@@ -505,14 +451,7 @@
 			<script src="{{url('website/js/changer.js')}}"></script>
 			<script defer src="{{url('website/js/styleswitch.js')}}"></script>	
 			<script src="//code.jivosite.com/widget/GOAa99DTuX" async></script>
-			
-
 	</body>
-
-
-
-
-<!-- Mirrored from jthemes.net/themes/html/medservices/files/terms.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 06 Aug 2024 06:02:31 GMT -->
 </html>	
 
 

@@ -81,7 +81,7 @@
 								<ul style="padding: 0; margin: 0; list-style: none;">
 									<li style="margin-bottom: 10px;"><a href="#" style="color: white; text-decoration: none;">Our Location</a></li>
 									<li style="margin-bottom: 10px;"><a href="{{url('privicypolicy')}}" style="color: white; text-decoration: none;">Privacy Policy</a></li>
-									<li style="margin-bottom: 10px;"><a href="{{url('blogs')}}" style="color: white; text-decoration: none;">Our Blog</a></li>
+									<li style="margin-bottom: 10px;"><a href="{{url('blogss')}}" style="color: white; text-decoration: none;">Our Blog</a></li>
 									<li><a href="#" style="color: white; text-decoration: none;">Advertising</a></li>
 								</ul>
 							</div>

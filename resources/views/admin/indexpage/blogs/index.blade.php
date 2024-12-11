@@ -49,7 +49,10 @@ $amanagement = $mcourses = 'active';
                 <tr>
                   <th>Sr</th>
                   <th>Name</th>
+                  <th>Heading</th>
+
                   <th>Description</th>
+
                   <th>Image</th>
                   <th>Action</th>
                 </tr>
@@ -62,22 +65,24 @@ $amanagement = $mcourses = 'active';
                 <tr>
                     <td>{{$i++}}</td>
                     <td>{{$row->name}}</td>
+                    <th>{{$row->heading}}</th>
                     <td>{{$row->description}}</td>
+
                     <td>
                       <!-- @if($row->image)
                         <img src="{{ asset('storage/'.$row->image) }}" alt="Image" style="width: 80px; height: 60px;">
                       @endif -->
 
 
-                      @if($blog->image)
-                          <img src="{{ asset('storage/' . $blog->image) }}" alt="Service Image" width="50">
-                          @else
-                            No Image
-                          @endif
+                      @if($row->image)
+                      <img src="{{ asset('storage/' . $row->image) }}" alt="Service Image" width="50">
+                  @else
+                      No Image
+                  @endif
                     </td>
                     
                     <td>
-                    <a type="button" class="btn btn-sm btn-primary" href="{{ route('blogs.edit', $row->id) }}">Edit</a>
+                    <a type="button" class="btn btn-sm btn-primary" href="{{ url('blogs-edit', $row->id) }}">Edit</a>
                     </td>
                 </tr>
                 @endforeach
