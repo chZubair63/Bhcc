@@ -11,73 +11,71 @@ class WebsiteController extends Controller
     {
         return view('website.index');
     }
-    // public function aboutus(){
 
-    //     return view ('aboutus');
-
-    // }
     public function aboutUs()
-{
-    return view('website.screens.aboutus');
-}
- 
+    {
+        return view('website.screens.aboutus');
+    }
 
-public function departments()
-{
-    return view('website.screens.departments');
-}
+    public function departments()
+    {
+        return view('website.screens.departments');
+    }
 
-
-
-public function ourdoctors()
-{
+    public function ourdoctors()
+    {
         // Fetch all doctors from the database
         $doctors = Doctor::all();
 
         // Return the view with doctors data
         return view('website.screens.ourdoctors', compact('doctors'));
-}
+    }
+
+    public function appointment()
+    {
+        return view('website.screens.appointment');
+    }
+    public function ourservices()
+    {
+        return view('website.screens.ourservices');
+    }
+
+    // public function doctorProfile()
+    // {
+    //     $doctors = Doctor::all(); // Fetch data from your database
+    //     return view('website.screens.doctorprofile', compact('doctors'));
+    // }
+
+    public function departmenttype()
+    {
+        return view('website.screens.departmenttype');
+    }
+
+    public function contactus()
+    {
+        return view('website.screens.contactus');
+    }
+
+    public function privicypolicy()
+    {
+        return view('website.screens.privicypolicy');
+    }
+
+    public function blogs()
+    {
+        return view('website.screens.blogs');
+    }
+
+    public function doctortimetable()
+    {
+        return view('website.screens.doctortimetable');
+    }
 
 
+    public function doctorProfile($id)
+    {
+        $doctor = Doctor::where('id', $id)->first();
 
-public function appointment()
-{
-    return view('website.screens.appointment');
-}
-
-public function ourservices()
-
-
-{
-    return view('website.screens.ourservices');
-}
-
-
-public function doctorprofile()
-{
-    return view('website.screens.doctorprofile');
-}
-
-public function departmenttype()
-{
-    return view('website.screens.departmenttype');
-}
-
-public function contactus(){
-    return view('website.screens.contactus');
-}
-
-
-public function privicypolicy(){
-    return view('website.screens.privicypolicy');
-}
-public function blogs(){
-    return view('website.screens.blogs');
-}
-
-
-public function doctortimetable(){
-    return view('website.screens.doctortimetable');
-}
-
+        return view('website.screens.doctorprofile', compact('doctor'));
+    }
 }

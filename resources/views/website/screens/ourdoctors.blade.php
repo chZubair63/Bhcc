@@ -75,30 +75,21 @@
 					<div class="col-md-6 col-lg-4">
 						<div class="doctor-2">
 							<!-- Doctor Photo -->
-							<div class="image-hover">
+							<div class="">
+								<img class="image-hover" src="{{ asset('storage/assets/images/doctor/' . $doctor->image) }}" alt="">
 							</div>
 							<style>
 								.image-hover {
 									width: 280px;
-									background-image: url("{{ asset(' assets/images/doctors/' . $doctor->image) }}");
 									height: 307px;
-									/* Specify the height */
 									background-size: cover;
-									/* Cover the entire area of the element */
 									transition: background-image 2s;
-									/* Smooth transition */
-								}
-
-								.image-hover:hover {
-									background-image: url("{{ asset('assets/images/doctors/' . $doctor->image) }}");
-									/* Replace with hover image field if available */
 								}
 							</style>
 
 							<!-- Doctor Meta -->
 							<div class="doctor-meta">
 								<h5 class="h5-xs blue-color">{{ $doctor->name }}</h5>
-								<span>{{ $doctor->area_of_expertise }}</span>
 
 								<!-- Button -->
 								<a class="btn btn-sm btn-blue blue-hover mt-15" href="{{ url('doctorprofile', $doctor->id) }}" title="View {{ $doctor->name }}'s Profile">

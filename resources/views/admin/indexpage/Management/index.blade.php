@@ -68,7 +68,9 @@ $amanagement=$mdoctors='active';
                                                 <td>{{$management->name}}</td>
                                                 <td>{{ $management->designation }}</td>
                                                 <td>
-                                                    <img src="{{ asset('storage/'.$management->image) }}" alt="Management Image" style="width: 50px;">
+                                                    <!-- <img src="{{ asset('storage/'.$management->image) }}" alt="Management Image" style="width: 50px;"> -->
+                                                    <img src="{{ asset('storage/assets/images/management/' . ($management->image ?? 'default-image.jpg')) }}" alt="Management Image" style="width: 80px; height: 80px; object-fit: cover;">
+
                                                 </td>
 
                                                 <td>

@@ -31,19 +31,22 @@ class ManagementController extends Controller
             'designation' => 'required|string|max:500',
         ]);
 
-
+        // Handle image upload
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('managements', 'public'); // Store the image in 'managements' folder in public disk
+            $imageName = time() . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move('storage/assets/images/management', $imageName); // Store the image in 'managements' folder
+            $imagePath = $imageName; // Set the image path to store in the database
         }
 
+        // Create new management record
         Management::create([
             'name' => $request->input('name'),
             'image' => $imagePath, // Store the image path
             'designation' => $request->input('designation'),
-
         ]);
 
+        // Redirect with success feedback
         return redirect()->route('admin.indexpage.Management.index')->with('feedback', 'Management record added successfully!');
     }
 
@@ -57,32 +60,33 @@ class ManagementController extends Controller
     // Update an existing management record
     public function update(Request $request, $id)
     {
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'designation' => 'required|string|max:255',
+        $request->validate(['name' => 'required|string|max:255',
+            'designation' => 'required|string|max:255','image' => 'nullable|image', // Ensure image validation is consistent
         ]);
 
         $management = Management::findOrFail($id); // Fetch the management by ID
 
+        // Update name and designation
         $management->name = $request->input('name');
         $management->designation = $request->input('designation');
 
+        // Handle image update if new image is uploaded
         if ($request->hasFile('image')) {
+            // Delete the old image if it exists
             if ($management->image && Storage::exists('public/' . $management->image)) {
                 Storage::delete('public/' . $management->image);
             }
 
-            // Upload the new image and save the path
-            $imagePath = $request->file('image')->store('managements', 'public');
-            $management->image = $imagePath;
+            // Upload the new image and store it in the desired folder
+            $imageName = time() . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move('storage/assets/images/management', $imageName); // Store the image in 'managements' folder
+            $management->image = $imageName; // Set the new image path
         }
 
         // Save the updated management record
         $management->save();
 
-        // Redirect to the index page with a success message
+        // Redirect with success feedback
         return redirect()->route('admin.indexpage.Management.index')->with('feedback', 'Management record updated successfully!');
     }
 }
