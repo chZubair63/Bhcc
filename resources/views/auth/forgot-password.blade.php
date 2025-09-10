@@ -1,13 +1,13 @@
 <x-guest-layout>
     <x-auth-card>
-       
+
 
         <div class="mb-4 text-sm text-gray-600">
-        <x-slot name="logo">
-     
-     <a href="{{url('/')}}"><img src='{{asset("adminlte/imgs/logo.png")}}' width='100'></a>
-   
- </x-slot>
+            <x-slot name="logo">
+
+                <a href="{{url('/')}}"><img src='{{asset("adminlte/imgs/BHCClogo.jpg")}}' width='100'></a>
+
+            </x-slot>
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
 

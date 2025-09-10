@@ -10,7 +10,7 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <x-slot name="logo">
      
-     <a href="{{url('/')}}"><img src='{{asset("adminlte/imgs/logo.png")}}' width='125'></a>
+     <a href="{{url('/')}}"><img src='{{asset("adminlte/imgs/BHCClogo.jpg")}}' width='125'></a>
    
  </x-slot>
 
