@@ -1,171 +1,65 @@
-body {
-    font-family: Arial, sans-serif;
-}
 
-.top-header {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-}
+    body { font-family: Arial, sans-serif; }
+    .top-header { background: #fff; border-bottom: 1px solid #ddd; }
+    .top-header .logo img { max-height: 75px; margin-right:20px; margin-top: 9px; padding-bottom:5px; }
+    .top-header h1 { font-size: 21px; font-weight: bold; color: #d71920; margin: 0;padding-top: 21px;padding-bottom: 5px;}
+    .top-header p { margin: 0; font-size: 14px; color: #555; }
+    .social-icons a { color: #000; margin-left: 10px; }
+    .navbar { background: #d71920; }
+    .navbar-nav .nav-link { color: #fff !important; font-weight: 500; }
+    .navbar-nav .dropdown-menu { border-radius: 0; }
+    .hero img { width: 100%; height: auto; }
+    .vision-section h3 { color: #d71920 ; font-weight: bold; }
+    .core-functions .card { border: none; color: #fff; font-weight: bold; }
+    .core-functions .green { background: #198754; }
+    .core-functions .red { background: #d71920; }
+    .cgds-section ul { padding-left: 1rem; }
+    .cgds-section .btn { margin: 5px 0; }
+    .licensing-section { background: #198754; color: #fff; }
+    .licensing-section h2 { font-size: 30px; font-weight: bold; }
+    .complaints-section h2 { color: #d71920; }
+    .complaints-section .btn { margin: 5px; border-color:#ff0000;}
+    .news-section h2 { color: #198754; margin-bottom: 30px; }
+    .news-card { border: none; }
+    .newsletter { background: #d71920; color: #fff; padding: 40px 0; }
+    .newsletter input { border-radius: 0; }
+    footer { background: #d71920; color: #fff; padding: 40px 0; }
+    footer h5 { font-weight: bold; }
+    footer a { color: #fff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-.top-header .logo img {
-    max-height: 75px;
-    margin-right: 20px;
-    margin-top: 9px;
-    padding-bottom: 5px;
-}
+    .social-icons a {
+      display: inline-block;
+      background-color: white; /* Background black */
+      color: black;            /* Icon color white */
+      width: 40px;
+      height: 40px;
+      line-height: 40px;       /* Center the icon vertically */
+      text-align: center;      /* Center the icon horizontally */
+      border-radius: 50%;      /* Make circular background */
+      margin: 0 5px;
+      font-size: 18px;         /* Adjust icon size */
+      transition: 0.3s;
+    }
 
-.top-header h1 {
-    font-size: 21px;
-    font-weight: bold;
-    color: #d71920;
-    margin: 0;
-    padding-top: 21px;
-    padding-bottom: 5px;
-}
+    .social-icons a:hover {
+      background-color: black; /* On hover */
+      color: white;            /* Invert colors on hover */
+    }
+    .dsgn-clinc {
+        border: 1px solid #d5d5d5;
+        padding: 20px;
+        font-weight: bold;
+        background-color: #d5d5d5;
+        text-align: center;
+        margin: 5px;
+    }
+    .complaints-section {
+      background-image: url('/images/Rectangle213.jpg');
+      background-size: cover; 
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      position: relative;
 
-.top-header p {
-    margin: 0;
-    font-size: 14px;
-    color: #555;
-}
-
-.social-icons a {
-    color: #000;
-    margin-left: 10px;
-}
-
-.navbar {
-    background: #d71920;
-}
-
-.navbar-nav .nav-link {
-    color: #fff !important;
-    font-weight: 500;
-}
-
-.navbar-nav .dropdown-menu {
-    border-radius: 0;
-}
-
-.hero img {
-    width: 100%;
-    height: auto;
-}
-
-.vision-section h3 {
-    color: #d71920;
-    font-weight: bold;
-}
-
-/* .core-functions .card { border: none; color: #fff; font-weight: bold; } */
-
-.core-functions .green {
-    background: #198754;
-}
-
-.core-functions .red {
-    background: #d71920;
-}
-
-.cgds-section ul {
-  
-    padding-left: 1rem;
-}
-
-.cgds-section .btn {
-    margin: 5px 0;
-}
-
-.licensing-section {
-    background: #198754;
-    color: #fff;
-}
-
-.licensing-section h2 {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.complaints-section h2 {
-    color: #d71920;
-}
-
-.complaints-section .btn {
-    margin: 5px;
-    border-color: #ff0000;
-}
-
-.news-section h2 {
-    color: #198754;
-    margin-bottom: 30px;
-}
-
-.news-card {
-    border: none;
-}
-
-.newsletter {
-    background: #d71920;
-    color: #fff;
-    padding: 40px 0;
-}
-
-.newsletter input {
-    border-radius: 0;
-}
-
-footer {
-    background: #d71920;
-    color: #fff;
-    padding: 40px 0;
-}
-
-footer h5 {
-    font-weight: bold;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-.social-icons a {
-    display: inline-block;
-    background-color: white; /* Background white */
-    color: black;            /* Icon color black */
-    width: 40px;
-    height: 40px;
-    line-height: 40px;       /* Center the icon vertically */
-    text-align: center;      /* Center the icon horizontally */
-    border-radius: 50%;      /* Make circular background */
-    margin: 0 5px;
-    font-size: 18px;         /* Adjust icon size */
-    transition: 0.3s;
-}
-
-.social-icons a:hover {
-    background-color: black; /* On hover */
-    color: white;            /* Invert colors on hover */
-}
-
-.dsgn-clinc {
-    border: 1px solid #d5d5d5;
-    padding: 20px;
-    font-weight: bold;
-    background-color: #d5d5d5;
-    text-align: center;
-    margin: 5px;
-}
-
-.complaints-section {
-    background-image: url('../images/Rectangle 213.jpg'); /* replace with your image path */
-    background-size: cover;      /* makes image cover the whole section */
-    background-position: center; /* centers the image */
-    background-repeat: no-repeat;
-    color: white;                /* ensures text is visible */
-    position: relative;
-}
+    }
